@@ -1,0 +1,2 @@
+Install PIL/Pillow using this command at the terminal:
+pip install Pillow

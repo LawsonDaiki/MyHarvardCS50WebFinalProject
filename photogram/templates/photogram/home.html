@@ -1,0 +1,44 @@
+{% extends "photogram/layout.html" %}
+{% load static %}
+
+{% block script %}
+    <script src="{% static 'photogram/likePost.js' %}"></script>
+    <script src="{% static 'photogram/comment.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+  
+    {% for post in posts %}
+                <article class="media content-section post-container">
+
+                        <div class="post-header">
+                                <a href="{% url 'profile' post.user.username %}"><img class="rounded-circle article-img" src="{{ post.user.profile.image.url }}"></a>
+                                <a class="mr-2 post-username" href="{% url 'profile' post.user.username %}">{{ post.user }}</a>
+                        </div>
+
+                        <div class="post-image">
+                                <img class="article-img post-image" src="{{ post.image.url }}">
+                                <small class="text-muted">{{ post.timestamp|date:"F d, Y" }}</small>
+                                <p class="article-content post-caption">{{ post.caption }}</p>
+                                <div class="like-comment-container">
+                                        {% csrf_token %}
+                                        <div class="likeNumber" data-postid="{{ post.id }}">{{ post.likeCount }}</div>
+                                        <button class="likeButton" data-postid="{{ post.id }}"> &#10084; </button>
+                                        <button class="showComments" data-postid="{{ post.id }}"> Comments </button>
+                                </div>
+                        </div>
+
+                        <div class="comments-container" data-postid="{{ post.id }}"></div>
+
+                        <div class="comment-submit" data-postid="{{ post.id }}">
+                                <form action="/comment/{{ post.id }}" method="POST">
+                                        {% csrf_token %}
+                                        <label for="comment">Comment: </label>
+                                        <input id="comment" type="text" name="comment" data-postid="{{ post.id }}">
+                                        <button id="submitComment" data-postid="{{ post.id }}">Submit</button>
+                                </form>
+                        </div>
+                </article>
+    {% endfor %} 
+  
+{% endblock %}
