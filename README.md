@@ -1,6 +1,6 @@
 # Photogram, my capstone project
 
-Photogram is the name of my capstone project. It's a mobile-responsive website for online photo-sharing application and social network platform, similar to the famous app Instagram.
+Photogram is the name of my CS50 Web capstone project. It's a mobile-responsive website for online photo-sharing application and social network platform, similar to the famous app Instagram.
 In Photogram, you can upload a post with an image and a caption. The users can like and comment on the posts. In addition to this, they can also follow each other's accounts, allowing them to see all their friend's posts easily on a timeline page. Photogram's users can also see each other profiles and edit their own. I decided to make this application as my final project because I believe it is more complex and challenging than Project 4 due to three big reasons, first, the post has an image; second, the users can like and comment on the posts; and third, the application is mobile-responsive. 
 
 For this project, I used PIL/Pillow to help me do the image processing to my Python interpreter. This library provides extensive file format support, an efficient internal representation, and fairly powerful image processing capabilities. The core image library is designed for fast access to data stored in a few basic pixel formats. It provides me a solid foundation for general image processing. 
